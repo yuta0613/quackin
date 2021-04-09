@@ -42,7 +42,8 @@ impl KnnUserRecommender {
         let mut item_indices = HashMap::<String, usize>::new();
         let mut user_ids = Vec::new();
         let mut item_ids = Vec::new();
-        let mut pre_vectors = HashMap::<usize, (BTreeMap<usize, f64>)>::new();
+        // let mut pre_vectors = HashMap::<usize, (BTreeMap<usize, f64>)>::new();
+        let mut pre_vectors = HashMap::<usize, BTreeMap<usize, f64> >::new();
         let (mut i, mut j) = (0, 0);
 
         for record in records {
@@ -98,8 +99,10 @@ impl Recommender for KnnUserRecommender {
     /// Returns error if the user or item ids could not be found
     /// or if there is no users with a positive similarity.
     fn predict(&self, user_id: &str, item_id: &str) -> Result<f64, String> {
-        let user_index = try!(self.user_indices.get(user_id).ok_or("User not found"));
-        let item_index = try!(self.item_indices.get(item_id).ok_or("Item not found"));
+        // let user_index = try!(self.user_indices.get(user_id).ok_or("User not found"));
+        // let item_index = try!(self.item_indices.get(item_id).ok_or("Item not found"));
+        let user_index = self.user_indices.get(user_id).ok_or("User not found")?;
+        let item_index = self.item_indices.get(item_id).ok_or("Item not found")?;
 
         let vector = self.ratings.get(user_index).unwrap();
 

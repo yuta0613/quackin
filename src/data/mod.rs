@@ -123,7 +123,8 @@ pub fn read_custom_records(path: &str, options: ReadOptions) -> Result<Vec<Recor
 
     let del = options.delimiter as u8;
 
-    let mut reader = try!(csv::Reader::from_file(path))
+    // let mut reader = try!(csv::Reader::from_file(path))
+    let mut reader = csv::Reader::from_file(path)?
         .has_headers(options.has_headers)
         .delimiter(del);
     let ratings = reader.decode().map(|row| {
