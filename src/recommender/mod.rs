@@ -141,6 +141,6 @@ impl Recommender for KnnUserRecommender {
             }
         }).collect::<Vec<(String, f64)>>();
         recommendations.sort_by(|&(_, x), &(_, y)| y.partial_cmp(&x).unwrap());
-        recommendations
+        recommendations[0..9]
     }
 }
