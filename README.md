@@ -4,6 +4,10 @@
 
 Release the quackin! 🦆
 
+**This repository id folked from [Quackin](https://github.com/chrisvittal/quackin)), because of update package. ( 2021/04 )**
+
+
+
 Quackin is a recommender systems framework written in Rust. This is a young
 project, which means two things:
 
@@ -49,7 +53,7 @@ Whew, thats a lot of boilerplate for just loading the dataset. But this was
 the hardest part of the process. Now lets load the dataset:
 
 ```rust
-let records = read_custom_records("/path/to/movielens", options);
+let records = read_custom_records("/path/to/movielens", options).unwrap();
 ```
 Thats it! now let's build a recommender
 
