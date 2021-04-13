@@ -6,6 +6,11 @@ Release the quackin! 🦆
 
 **This repository id folked from [Quackin](https://github.com/chrisvittal/quackin)), because of update package. ( 2021/04 )**
 
+In Cargo.toml, this reop selectd as
+```toml
+quackin = {git = "https://github.com/yuta0613/quackin.git"}
+```
+
 
 
 Quackin is a recommender systems framework written in Rust. This is a young
